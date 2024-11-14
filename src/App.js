@@ -1,4 +1,4 @@
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import LoginPage from './pages/LoginPage/LoginPage.js';
 import SignupPage from './pages/SingupPage/SignupPage.js';
@@ -12,7 +12,7 @@ import WithdrawalPage from './pages/WithdrawalPage/WithdrawalPage.js';
 function App() {
   return (
     <>
-      <BrowserRouter>,
+      <BrowserRouter>
         <Routes>
           <Route path ='/' element={<LoginPage />} />
           <Route path ='/signup' element={<SignupPage />} />
