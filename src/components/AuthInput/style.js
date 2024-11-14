@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const InputWrapper = styled.div`
   display :flex;
   flex-direction : column;
+  gap : 0px;
 `;
 
 export const Input = styled.input`
@@ -11,4 +12,8 @@ export const Input = styled.input`
   width: 267px;
   height: 39px;
   margin-bottom: 10px;
+`;
+
+export const Type = styled.p`
+  margin : 2px;
 `;
