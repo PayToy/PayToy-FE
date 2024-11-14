@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 
 
 const LoginPage = () => {
-  const [email, setEmail] = useState("");
+  const [tel, setTel] = useState("");
   const [password, setPassword] = useState("");
 
   const handleData = (e) => {
-    if (e.target.name === "email") {
-      setEmail(e.target.value);
+    if (e.target.name === "tel") {
+      setTel(e.target.value);
     }
     if (e.target.name === "password") {
       setPassword(e.target.value);
@@ -21,10 +21,10 @@ const LoginPage = () => {
     <Wrapper>
       <Title>PayToy</Title>
       <AuthInput 
-        name="email"
-        placeholder="email"
-        type="email"
-        value={email}
+        name="tel"
+        placeholder="tel"
+        type="tel"
+        value={tel}
         onChange={handleData} 
         required
       />
