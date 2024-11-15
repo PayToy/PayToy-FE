@@ -6,17 +6,17 @@ export const Wrapepr = styled.div`
 `;
 
 export const Button = styled.button`
-box-sizing: border-box;
-width: 222px;
-height: 37px;
+  box-sizing: border-box;
+  width: 222px;
+  height: 37px;
 
-background: #87CEEB;
-border: 1px solid #000000;
+  background: #87CEEB;
+  border: 1px solid #000000;
 
 
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 15px;
-line-height: 16px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 16px;
 `;

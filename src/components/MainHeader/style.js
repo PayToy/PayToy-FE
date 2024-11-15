@@ -9,13 +9,13 @@ export const Wrapper = styled.div`
 
 export const Title = styled.h1`
 
-font-family: 'Jacques Francois';
-font-style: normal;
-font-weight: 700;
-font-size: 20px;
-line-height: 26px;
+  font-family: 'Jacques Francois';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 26px;
 
-color: #000000;
+  color: #000000;
 `;
 
 export const AccountButton = styled.button`
