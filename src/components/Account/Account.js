@@ -1,18 +1,34 @@
+import { useNavigate } from "react-router-dom";
 import { AccountNumber, AccountBalance, Button, ButtonWrapper, Wrapper } from "./style.js"
 
-const Account = ({accountNumber, balance}) => {
+const Account = ({account_id, accountNumber, Balance}) => {
   
-  const parseInt = (balance) => {
-    return Number(balance).toLocaleString();
+  const navigate = useNavigate();
+
+  const formatBalance = (Balance) => {
+    console.log(Balance);
+    return Number(Balance).toLocaleString();
   }
+  const handleRemittance = () => {
+    navigate('/remittance');
+  }
+
+  const handleDeposit = () => {
+    navigate('/deposit');
+  }
+
+  const handleWithdrawal = () => {
+    navigate('/withdrawal');
+  }
+
   return (
     <Wrapper>
       <AccountNumber>계좌번호 : {accountNumber}</AccountNumber>
-      <AccountBalance>{parseInt(balance)} 원</AccountBalance>
+      <AccountBalance>{formatBalance(Balance)} 원</AccountBalance>
       <ButtonWrapper>
-        <Button>입금하기</Button>
-        <Button>송금하기</Button>
-        <Button>출금하기</Button>
+        <Button onClick={handleDeposit}>입금하기</Button>
+        <Button onClick={handleRemittance}>송금하기</Button>
+        <Button onClick={handleWithdrawal}>출금하기</Button>
       </ButtonWrapper>
     </Wrapper>
   )

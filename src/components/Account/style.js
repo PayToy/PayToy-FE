@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
 export const AccountNumber = styled.p`
 
 position: absolute;
-width: 142px;
+width: 100%;
 height: 18px;
 margin-top: 5px;
 
@@ -27,6 +27,7 @@ font-style: normal;
 font-weight: 400;
 font-size: 17px;
 line-height: 18px;
+
 
 color: #000000;
 

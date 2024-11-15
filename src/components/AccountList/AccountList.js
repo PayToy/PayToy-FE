@@ -1,3 +1,5 @@
+import Account from "../Account/Account.js";
+import { Wrapper } from "./style.js";
 
 
 const AccountList = () => {
@@ -5,7 +7,7 @@ const AccountList = () => {
     {
       account_id : 1,
       accountNumber : "100279974808",
-      Balance: 4000,
+      Balance: "4000",
     },
     {
       account_id : 2,
@@ -15,9 +17,9 @@ const AccountList = () => {
   ]
 
   return (
-    <div>
-        
-    </div>
+    <Wrapper>
+      {mockData.map((account => <Account key={account.account_id} {...account} />))}
+    </Wrapper>
   )
 }
 
