@@ -33,7 +33,7 @@ color: #000000;
 
 `;
 
-export const AccountProperty = styled.p`
+export const AccountBalance = styled.p`
   display: flex;
   justify-content: center;
   height: 50%;

@@ -1,14 +1,14 @@
-import { AccountNumber, AccountProperty, Button, ButtonWrapper, Wrapper } from "./style.js"
+import { AccountNumber, AccountBalance, Button, ButtonWrapper, Wrapper } from "./style.js"
 
-const Account = ({accountNumber, property}) => {
+const Account = ({accountNumber, balance}) => {
   
-  const parseInt = (property) => {
-    return Number(property).toLocaleString();
+  const parseInt = (balance) => {
+    return Number(balance).toLocaleString();
   }
   return (
     <Wrapper>
       <AccountNumber>계좌번호 : {accountNumber}</AccountNumber>
-      <AccountProperty>{parseInt(property)} 원</AccountProperty>
+      <AccountBalance>{parseInt(balance)} 원</AccountBalance>
       <ButtonWrapper>
         <Button>입금하기</Button>
         <Button>송금하기</Button>
