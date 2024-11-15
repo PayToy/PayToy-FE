@@ -1,4 +1,4 @@
-import { Input, InputWrapper, Type } from "./style";
+import { Input, InputWrapper, Type } from "./style.js";
 
 const AuthInput = ({name, placeholder, type, value, onChange}) => {
   return (

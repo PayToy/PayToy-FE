@@ -1,7 +1,8 @@
 import { useState } from "react";
-import AuthInput from "../../components/AuthInput/AuthInput";
-import { Title, Wrapper } from "./style";
+import AuthInput from "../../components/AuthInput/AuthInput.js";
+import { Title, Wrapper } from "./style.js";
 import { Link } from "react-router-dom";
+import AuthButton from "../../components/AuthButton/AuthButton.js";
 
 
 const LoginPage = () => {
@@ -36,7 +37,9 @@ const LoginPage = () => {
         onChange={handleData}
         required
       />
+      <AuthButton title = "로그인"/>
       <Link to={"/signup"}>회원가입</Link>
+
     </Wrapper>
   )
 }
