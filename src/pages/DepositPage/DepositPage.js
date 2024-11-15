@@ -8,13 +8,9 @@ const DepositPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const {accountNumber, Balance} = location.state || {};
-  const [account, setAccount] = useState("");
   const [balance, setBalance] = useState("");
 
   const handleData = (e) => {
-    if (e.target.name === "account") {
-      setAccount(e.target.value);
-    }
     if (e.target.name === "balance") {
       setBalance(e.target.value);
     }
@@ -40,15 +36,8 @@ const DepositPage = () => {
         <AccountBalance>잔액 : {Balance}</AccountBalance>
         <InputWrapper>
           <Input 
-            name="account"
-            placeholder="계좌번호"
-            type="text"
-            value={account}
-            onChange={handleData}
-          />
-          <Input 
             name="balance"
-            placeholder="보낼금액"
+            placeholder="입금금액"
             type="text"
             value={balance}
             onChange={handleData}

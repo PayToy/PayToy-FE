@@ -10,7 +10,7 @@ const Account = ({account_id, accountNumber, Balance}) => {
     return Number(Balance).toLocaleString();
   }
   const handleRemittance = () => {
-    navigate('/remittance');
+    navigate(`/remittance/${account_id}`, {state : {accountNumber, Balance}});
   }
 
   const handleDeposit = () => {
@@ -18,7 +18,7 @@ const Account = ({account_id, accountNumber, Balance}) => {
   }
 
   const handleWithdrawal = () => {
-    navigate('/withdrawal');
+    navigate(`/withdrawal`);
   }
 
   return (

@@ -18,7 +18,7 @@ function App() {
           <Route path ='/signup' element={<SignupPage />} />
           <Route path ='/main' element={<MainPage />} />
           <Route path ='/deposit/:id' element={<DepositPage />} />
-          <Route path ='/remittance' element={<RemittancePage />} />
+          <Route path ='/remittance/:id' element={<RemittancePage />} />
           <Route path ='/withdrawal' element={<WithdrawalPage />} />
         </Routes>
       </BrowserRouter>
