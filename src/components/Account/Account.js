@@ -18,7 +18,7 @@ const Account = ({account_id, accountNumber, Balance}) => {
   }
 
   const handleWithdrawal = () => {
-    navigate(`/withdrawal`);
+    navigate(`/withdrawal/${account_id}`, {state: {accountNumber, Balance}});
   }
 
   return (
