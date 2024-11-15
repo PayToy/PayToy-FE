@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import LoginPage from './pages/LoginPage/LoginPage.js';
+import SignupPage from './pages/SingupPage/SignupPage.js';
+import MainPage from './pages/MainPage/MainPage.js';
+import DepositPage from './pages/DepositPage/DepositPage.js';
+import RemittancePage from './pages/RemittancePage/RemittancePage.js';
+import WithdrawalPage from './pages/WithdrawalPage/WithdrawalPage.js';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path ='/' element={<LoginPage />} />
+          <Route path ='/signup' element={<SignupPage />} />
+          <Route path ='/main' element={<MainPage />} />
+          <Route path ='/deposit' element={<DepositPage />} />
+          <Route path ='/remittance' element={<RemittancePage />} />
+          <Route path ='/withdrawal' element={<WithdrawalPage />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
