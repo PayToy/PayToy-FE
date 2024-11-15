@@ -17,7 +17,7 @@ function App() {
           <Route path ='/' element={<LoginPage />} />
           <Route path ='/signup' element={<SignupPage />} />
           <Route path ='/main' element={<MainPage />} />
-          <Route path ='/deposit' element={<DepositPage />} />
+          <Route path ='/deposit/:id' element={<DepositPage />} />
           <Route path ='/remittance' element={<RemittancePage />} />
           <Route path ='/withdrawal' element={<WithdrawalPage />} />
         </Routes>

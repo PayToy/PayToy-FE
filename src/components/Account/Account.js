@@ -14,7 +14,7 @@ const Account = ({account_id, accountNumber, Balance}) => {
   }
 
   const handleDeposit = () => {
-    navigate('/deposit');
+    navigate(`/deposit/${account_id}`, {state : {accountNumber, Balance}});
   }
 
   const handleWithdrawal = () => {
