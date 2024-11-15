@@ -1,8 +1,9 @@
 import { useState } from "react";
-import AuthInput from "../../components/AuthInput/AuthInput";
-import { Title } from "./style";
-import { Wrapper } from "../LoginPage/style";
+import AuthInput from "../../components/AuthInput/AuthInput.js";
+import { Title } from "./style.js";
+import { Wrapper } from "../LoginPage/style.js";
 import { Link } from "react-router-dom";
+import AuthButton from "../../components/AuthButton/AuthButton.js";
 
 const SignupPage = () => {
   const [formData, setFormData] = useState({
@@ -50,6 +51,7 @@ const SignupPage = () => {
         value={formData.username}
         onChange={handleData}
       />
+      <AuthButton title="회원가입" />
       <Link to={"/"}>로그인</Link>
     </Wrapper>
 
