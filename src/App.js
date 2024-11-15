@@ -19,7 +19,7 @@ function App() {
           <Route path ='/main' element={<MainPage />} />
           <Route path ='/deposit/:id' element={<DepositPage />} />
           <Route path ='/remittance/:id' element={<RemittancePage />} />
-          <Route path ='/withdrawal' element={<WithdrawalPage />} />
+          <Route path ='/withdrawal/:id' element={<WithdrawalPage />} />
         </Routes>
       </BrowserRouter>
     </>
