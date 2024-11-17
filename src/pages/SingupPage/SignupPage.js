@@ -5,7 +5,7 @@ import { Wrapper } from "../LoginPage/style.js";
 import { Link, useNavigate } from "react-router-dom";
 import AuthButton from "../../components/AuthButton/AuthButton.js";
 import { validateUser } from "../../utils/validator.js";
-import { checkTel } from "../../api/AuthAPI.js";
+import { checkTel, userSignup } from "../../api/AuthAPI.js";
 
 const SignupPage = () => {
   const navigate = useNavigate();
@@ -30,16 +30,24 @@ const SignupPage = () => {
     }
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const error = validateUser(formData);
     if(Object.keys(error).length > 0){
       alert(Object.values(error).join('\n'));
     } else if (!isTelChecked) {
       alert("전화번호 중복 검사를 완료해 주세요.");
     } else {
-      // 회원가입 추가 로직
-      navigate('/');
-      alert("회원가입 성공!");
+      try {
+        const response = await userSignup(formData);
+        if (response) {
+          alert("회원가입 성공!");
+          navigate('/');
+        }
+      } catch (error) {
+        console.log("회원가입 실패했습니다.", error);
+        alert("회원가입 실패.");
+      }
+
     }
   }
 
