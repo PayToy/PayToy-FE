@@ -11,3 +11,13 @@ export const createAccount = async (userId) => {
   }
 }
 
+export const depositAccount = async (balanceInfo) => {
+  try{
+    const response = await client.patch("/account/deposit", balanceInfo);
+    return response.data;
+  } catch(error) {
+    console.log("입금 실패", error);
+    throw error;
+  }
+}
+
