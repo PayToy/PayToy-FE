@@ -1,6 +1,6 @@
 import { useState } from "react";
 import AuthInput from "../../components/AuthInput/AuthInput.js";
-import { Title } from "./style.js";
+import { CheckDuplicate, Title } from "./style.js";
 import { Wrapper } from "../LoginPage/style.js";
 import { Link, useNavigate } from "react-router-dom";
 import AuthButton from "../../components/AuthButton/AuthButton.js";
@@ -33,6 +33,11 @@ const SignupPage = () => {
     }
   }
 
+  const handleDuplicateCheck = () => {
+    const {tel} = formData;
+    // api 로직 추가. try catch. => alert
+  }
+
   return (
     <Wrapper>
       <Title>PayToy</Title>
@@ -50,6 +55,7 @@ const SignupPage = () => {
         value={formData.tel}
         onChange={handleData}
       />
+      <CheckDuplicate onClick={handleDuplicateCheck}>중복검사</CheckDuplicate>
       <AuthInput
         name="password"
         placeholder="At least 6 characters"
