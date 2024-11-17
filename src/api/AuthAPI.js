@@ -10,3 +10,13 @@ export const userLogin = async (userInformaiton) => {
     throw error;
   }
 }
+
+export const userSignup = async (userInformaiton) => {
+  try{
+    const response = await client.post("register", userInformaiton);
+    return response.data;
+  } catch (error) {
+    console.log("회원가입 실패", error);
+    throw error;
+  }
+}
