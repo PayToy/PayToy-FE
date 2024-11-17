@@ -8,6 +8,7 @@ import { validateUser } from "../../utils/validator.js";
 
 const SignupPage = () => {
   const navigate = useNavigate();
+  const [isTelChecked, setIsTelChecked] = useState(false);
   const [formData, setFormData] = useState({
     username: '',
     tel: '',
@@ -20,12 +21,18 @@ const SignupPage = () => {
     setFormData({
       ...formData,
       [name] : value,
-    })
+    });
+
+    if(name === 'tel'){
+      setIsTelChecked(false); // 전화번호가 변경되면 중복 검사 초기화
+    }
   }
   const handleSubmit = () => {
     const error = validateUser(formData);
     if(Object.keys(error).length > 0){
       alert(Object.values(error).join('\n'));
+    } else if (!isTelChecked) {
+      alert("전화번호 중복 검사를 완료해 주세요.");
     } else {
       // 회원가입 추가 로직
       navigate('/');
@@ -36,6 +43,7 @@ const SignupPage = () => {
   const handleDuplicateCheck = () => {
     const {tel} = formData;
     // api 로직 추가. try catch. => alert
+    // isTelCheck 상태 성공 여부에 따라 변경 
   }
 
   return (
