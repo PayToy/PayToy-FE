@@ -31,3 +31,12 @@ export const withdrawalAccount = async (balanceInfo) => {
   }
 }
 
+export const remittanceAccount = async (balanceInfo) => {
+  try{
+    const response = await client.patch("/account/transfer", balanceInfo);
+    return response.data;
+  } catch(error) {
+    console.log("송금 실패", error);
+    throw error;
+  }
+}
