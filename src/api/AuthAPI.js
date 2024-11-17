@@ -20,3 +20,15 @@ export const userSignup = async (userInformaiton) => {
     throw error;
   }
 }
+
+export const checkTel = async (tel) => {
+  try {
+    const response = await client.get(`/user/tel/${tel}`);
+    return response.message;
+  } catch(error) {
+    console.log("중복 검사 실패", error);
+    throw error;
+  }
+}
+
+
