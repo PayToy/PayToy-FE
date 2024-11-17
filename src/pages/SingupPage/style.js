@@ -17,3 +17,7 @@ font-size: 3rem;
 line-height: 63px;
 color: #000000;
 `;
+
+export const CheckDuplicate = styled.button`
+  cursor : pointer;
+`;
