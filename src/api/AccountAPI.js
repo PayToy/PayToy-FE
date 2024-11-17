@@ -40,3 +40,13 @@ export const remittanceAccount = async (balanceInfo) => {
     throw error;
   }
 }
+
+export const getAccountInformation = async (accountNumber) => {
+  try {
+    const response = await client.get(`/account/${accountNumber}`);
+    return response.data;
+  } catch(error) {
+    console.log("계좌 정보 조회 실패", error);
+    throw error;
+  }
+}
