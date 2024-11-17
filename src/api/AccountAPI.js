@@ -21,3 +21,13 @@ export const depositAccount = async (balanceInfo) => {
   }
 }
 
+export const withdrawalAccount = async (balanceInfo) => {
+  try{
+    const response = await client.patch("/account/withdraw", balanceInfo);
+    return response.data;
+  } catch(error) {
+    console.log("출금 실패", error);
+    throw error;
+  }
+}
+
