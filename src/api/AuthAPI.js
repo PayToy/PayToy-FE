@@ -31,4 +31,14 @@ export const checkTel = async (tel) => {
   }
 }
 
+export const getUserInformation = async (userId) => {
+  try {
+    const response = await client.get(`/user/${userId}`);
+    return response.data;
+  }
+  catch(error) {
+    console.log("유저 정보를 가져오는데 실패했습니다.", error);
+    throw error;
+  }
+}
 
