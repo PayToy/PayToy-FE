@@ -1,10 +1,22 @@
+import { useNavigate } from "react-router-dom";
+import { createAccount } from "../../api/AccountAPI.js";
 import { AccountButton, Title, Wrapper } from "./style.js"
 
-const MainHeader = ({onClick}) => {
+const MainHeader = () => {
+  const navigate = useNavigate();
+  const handleCreateAccount = async () => {
+    try {
+      const response = await createAccount({userId : 52});
+      console.log(response);      
+      navigate(0);
+    } catch (error) {
+      console.log("계좌 생성 에러", error);
+    }
+  }
   return (
     <Wrapper>
       <Title>PayToy</Title>
-      <AccountButton onClick={() => onClick()}>계좌 생성</AccountButton>
+      <AccountButton onClick={handleCreateAccount}>계좌 생성</AccountButton>
     </Wrapper>
   )
 }

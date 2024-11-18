@@ -5,6 +5,7 @@ import { Wrapper } from "../LoginPage/style.js";
 import { Link, useNavigate } from "react-router-dom";
 import AuthButton from "../../components/AuthButton/AuthButton.js";
 import { validateUser } from "../../utils/validator.js";
+import { checkTel, userSignup } from "../../api/AuthAPI.js";
 
 const SignupPage = () => {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ const SignupPage = () => {
     password: '',
     passwordConfirm: '',
   })
+
   const handleData = (e) => {
     const {name, value} = e.target
 
@@ -27,23 +29,46 @@ const SignupPage = () => {
       setIsTelChecked(false); // 전화번호가 변경되면 중복 검사 초기화
     }
   }
-  const handleSubmit = () => {
+
+  const handleSubmit = async () => {
     const error = validateUser(formData);
     if(Object.keys(error).length > 0){
       alert(Object.values(error).join('\n'));
     } else if (!isTelChecked) {
       alert("전화번호 중복 검사를 완료해 주세요.");
     } else {
-      // 회원가입 추가 로직
-      navigate('/');
-      alert("회원가입 성공!");
+      try {
+        const response = await userSignup(formData);
+        if (response) {
+          alert("회원가입 성공!");
+          navigate('/');
+        }
+      } catch (error) {
+        console.log("회원가입 실패했습니다.", error);
+        alert("회원가입 실패.");
+      }
+
     }
   }
 
-  const handleDuplicateCheck = () => {
+  const handleDuplicateCheck = async () => {
     const {tel} = formData;
-    // api 로직 추가. try catch. => alert
-    // isTelCheck 상태 성공 여부에 따라 변경 
+    if(!tel) {
+      alert("전화번호를 입력해 주세요");
+      return;
+    }
+    try {
+      const response = await checkTel(tel);
+      if(response.message === "전화번호가 중복됩니다.") {
+        setIsTelChecked(false);
+        alert("사용 불가능한 번호입니다.")
+      } else {
+        setIsTelChecked(true);
+        alert("사용가능한 번호입니다.");
+      }
+    } catch (error) {
+      console.log("중복 검사 실패", error);
+    }
   }
 
   return (
