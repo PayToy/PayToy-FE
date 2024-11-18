@@ -23,7 +23,10 @@ const LoginPage = () => {
     try {
       const response = await userLogin({tel, password});
       if (response.status === 201) {
-        // 성공 시 세션id 저장..? 로컬스토리지
+        const sessionId = response.headers['session_id'];
+        if(sessionId){
+          localStorage.setItem('session_id', sessionId);
+        }
         alert("로그인 성공");
         navigate('/main');
       } else {

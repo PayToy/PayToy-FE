@@ -1,5 +1,7 @@
+import { useEffect, useState } from "react";
 import Account from "../Account/Account.js";
 import { Wrapper } from "./style.js";
+import { getUserInformation } from "../../api/AuthAPI.js";
 
 
 const AccountList = () => {
@@ -15,10 +17,23 @@ const AccountList = () => {
       Balance: 9000,
       }
   ]
+  const [accountData, setAccountData] = useState([]);
+  useEffect(() => {
+    const loadAccountData = async () => {
+      try {
+        const data = await getUserInformation(52); // 유저 아이디 삽입
+        console.log(data.data.accounts);
+        setAccountData(data.data.accounts);
+      } catch (error) {
+        console.log("계좌 정보를 불러오는데 실패했습니다.", error);
+      }
+    }
+    loadAccountData()
+  }, []);
 
   return (
     <Wrapper>
-      {mockData.map((account => <Account key={account.account_id} {...account} />))}
+      {accountData.map((account => <Account key={account.id} {...account} />))}
     </Wrapper>
   )
 }

@@ -10,7 +10,7 @@ client.interceptors.request.use(
   (config) => {
     const sessionId = localStorage.getItem('session_id');
     if(sessionId) {
-      config.headers['Authorization'] = `Bearer ${sessionId}`; //authorization 헤더에 세션아이디 추가
+      config.headers.session_id = sessionId;
     }
     return config;
   },

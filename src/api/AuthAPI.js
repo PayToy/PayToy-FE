@@ -14,7 +14,7 @@ export const userLogin = async (userInformaiton) => {
 
 export const userSignup = async (userInformaiton) => {
   try{
-    const response = await client.post("/register", userInformaiton);
+    const response = await client.post("/user", userInformaiton);
     return response.data;
   } catch (error) {
     console.log("회원가입 실패", error);
