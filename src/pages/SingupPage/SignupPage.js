@@ -61,8 +61,10 @@ const SignupPage = () => {
       const response = await checkTel(tel);
       if(response.message === "전화번호가 중복됩니다.") {
         setIsTelChecked(false);
+        alert("사용 불가능한 번호입니다.")
       } else {
         setIsTelChecked(true);
+        alert("사용가능한 번호입니다.");
       }
     } catch (error) {
       console.log("중복 검사 실패", error);
