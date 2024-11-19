@@ -21,7 +21,8 @@ const AccountList = () => {
   useEffect(() => {
     const loadAccountData = async () => {
       try {
-        const data = await getUserInformation(52); // 유저 아이디 삽입
+        const userId = localStorage.getItem('user_id');
+        const data = await getUserInformation(userId); // 유저 아이디 삽입
         console.log(data.data.accounts);
         setAccountData(data.data.accounts);
       } catch (error) {

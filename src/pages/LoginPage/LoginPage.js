@@ -22,10 +22,17 @@ const LoginPage = () => {
   const handleSubmit = async () => {
     try {
       const response = await userLogin({tel, password});
+      console.log("==========");
+      console.log(response);
+      console.log("==========");
       if (response.status === 201) {
-        const sessionId = response.headers['session_id'];
+        const sessionId = response.headers['session'];
+        const userId = response.data.data.userId;
         if(sessionId){
           localStorage.setItem('session_id', sessionId);
+        }
+        if(userId) {
+          localStorage.setItem('user_id', userId);
         }
         alert("로그인 성공");
         navigate('/main');

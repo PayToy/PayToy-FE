@@ -6,7 +6,8 @@ const MainHeader = () => {
   const navigate = useNavigate();
   const handleCreateAccount = async () => {
     try {
-      const response = await createAccount({userId : 52});
+      const userId = localStorage.getItem('user_id');
+      const response = await createAccount({userId : userId});
       console.log(response);      
       navigate(0);
     } catch (error) {
